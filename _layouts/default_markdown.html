@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>{{ page.title }}</title>
+
+    <link rel="stylesheet" href="{{ site.url }}/stylesheets/styles.css">
+    <link rel="stylesheet" href="{{ site.url }}/stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Shuyang Lin</h1>
+        <p></p>
+        <p class="navigation">
+          <a href="http://shuyang.github.io/">Home</a><br>
+          <a href="http://www.cs.uic.edu/~slin/">Research</a> <br>
+          <a href="http://shuyang.github.io/project/">Project</a><br>
+          <a href="http://shuyang.github.io/blog/">Blog</a><br>
+        </p>
+        <p class="view">
+          <a href="http://www.doleearts.com/">DoleeArts</a><br>
+          <a href="https://github.com/Shuyang">GitHub</a><br>
+          <a href="https://twitter.com/Shuyang9">Twitter</a><br>
+        </p>
+      </header>
+      <section>
+     {{ content | markdownify}}
+      </section>
+      <footer>
+        <p><small></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
