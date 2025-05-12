@@ -1,3 +1,18 @@
+# Site settings
 name: Shuyang's site
-markdown: redcarpet
-pygments: true
+title: Shuyang's site
+description: Personal website of Shuyang Lin
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM  # GitHub Flavored Markdown
+  syntax_highlighter: rouge
+
+# Exclude files from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .git
