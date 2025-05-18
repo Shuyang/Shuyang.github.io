@@ -1,0 +1,240 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f8ff;
+    font-family: Arial, sans-serif;
+}
+
+.game-container {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.game-info {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.score, .timer {
+    font-size: 20px;
+    margin: 5px 0;
+    color: #333;
+}
+
+#game-area {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: #e8f4f8;
+}
+
+.crab {
+    position: absolute;
+    width: 60px;
+    height: 40px;
+    border-radius: 50% 50% 0 0;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.claw {
+    position: absolute;
+    width: 35px;
+    height: 20px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+}
+
+.left-claw {
+    top: -10px;
+    left: -18px;
+    transform: rotate(-30deg);
+}
+
+.right-claw {
+    top: -10px;
+    right: -18px;
+    transform: rotate(30deg);
+}
+
+/* 不同速度的螃蟹颜色 */
+.crab.speed-slow {
+    background-color: #4CAF50; /* 绿色 - 慢速 */
+}
+
+.crab.speed-slow .claw {
+    background-color: #4CAF50;
+}
+
+.crab.speed-medium {
+    background-color: #FF9800; /* 橙色 - 中速 */
+}
+
+.crab.speed-medium .claw {
+    background-color: #FF9800;
+}
+
+.crab.speed-fast {
+    background-color: #f44336; /* 红色 - 快速 */
+}
+
+.crab.speed-fast .claw {
+    background-color: #f44336;
+}
+
+.crab:hover {
+    transform: scale(1.1);
+}
+
+/* 添加螃蟹消失的动画 */
+@keyframes disappear {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+.crab.caught {
+    animation: disappear 0.5s ease-out forwards;
+    pointer-events: none;
+}
+
+#game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.hidden {
+    display: none;
+}
+
+#restart-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#restart-button:hover {
+    background-color: #45a049;
+}
+
+.crab-bag {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 100px;
+    height: 120px;
+    background-color: rgba(139, 69, 19, 0.3); /* 半透明棕色 */
+    border: 2px solid rgba(139, 69, 19, 0.8);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 2;
+    overflow: hidden; /* 确保螃蟹不会溢出袋子 */
+}
+
+.crab-bag::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 20px;
+    background-color: rgba(139, 69, 19, 0.8);
+    border-radius: 20px 20px 0 0;
+}
+
+.bag-content {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    z-index: 3; /* 确保数字显示在螃蟹上面 */
+}
+
+.crab-bag.bag-medium {
+    background-color: rgba(255, 165, 0, 0.3);
+    border-color: rgba(255, 165, 0, 0.8);
+    animation: shake 0.5s ease-in-out;
+}
+
+.crab-bag.bag-warning {
+    background-color: rgba(255, 69, 0, 0.3);
+    border-color: rgba(255, 69, 0, 0.8);
+    animation: shake 0.3s ease-in-out infinite;
+}
+
+@keyframes shake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
+}
+
+@keyframes flyToBag {
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(0.8) rotate(180deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(0.4) rotate(360deg);
+        opacity: 0.6;
+    }
+}
+
+.crab.caught {
+    animation: flyToBag 0.8s ease-out forwards;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* 确保袋子里的螃蟹样式 */
+.crab-bag .crab {
+    position: absolute;
+    width: 30px; /* 袋子里的螃蟹更小 */
+    height: 20px;
+    animation: none;
+    pointer-events: none;
+} 

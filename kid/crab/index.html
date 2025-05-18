@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>捉螃蟹游戏</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-info">
+            <div class="score">得分: <span id="score">0</span></div>
+            <div class="timer">时间: <span id="timer">60</span>秒</div>
+        </div>
+        <div id="game-area">
+            <!-- 螃蟹将通过JavaScript动态创建 -->
+        </div>
+        <div id="game-over" class="hidden">
+            <h2>游戏结束!</h2>
+            <p>最终得分: <span id="final-score">0</span></p>
+            <button id="restart-button">重新开始</button>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html> 

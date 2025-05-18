@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乘法小游戏</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>乘法小游戏</h1>
+        <div class="game-info">
+            <div class="timer">剩余时间：<span id="time">60</span>秒</div>
+            <div class="score">得分：<span id="score">0</span></div>
+        </div>
+        <div class="game-area">
+            <div id="question" class="question">准备开始!</div>
+            <input type="number" id="answer" class="answer-input" placeholder="输入答案">
+            <button id="submit" class="submit-btn">提交</button>
+            <button id="start" class="start-btn">开始游戏</button>
+        </div>
+        <div id="result" class="result"></div>
+        <div id="history-container" class="history-container" style="display: none;">
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>题目</th>
+                        <th>你的答案</th>
+                        <th>正确答案</th>
+                        <th>结果</th>
+                    </tr>
+                </thead>
+                <tbody id="history-body"></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
