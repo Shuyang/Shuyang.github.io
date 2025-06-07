@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>放风筝游戏</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-area">
+            <svg width="800" height="600">
+                <!-- 天空背景 -->
+                <rect class="sky" width="800" height="565" fill="#87CEEB"/>
+                <!-- 草地背景 -->
+                <rect class="ground" y="565" width="800" height="35" fill="#90EE90"/>
+                <!-- 地面线 -->
+                <line id="ground" x1="0" y1="565" x2="800" y2="565" stroke="#666" stroke-width="2"/>
+                <!-- 风筝线 -->
+                <line id="string" x1="400" y1="565" x2="400" y2="300" stroke="#666" stroke-width="2"/>
+                <!-- 风筝 -->
+                <g id="kite" transform="translate(400,300)">
+                    <!-- 风筝主体 -->
+                    <path d="M0,-25 L20,0 L0,25 L-20,0 Z" fill="#FF6B6B" stroke="#333" stroke-width="1"/>
+                    <!-- 风筝装饰线 -->
+                    <line x1="0" y1="-25" x2="0" y2="25" stroke="#333" stroke-width="1"/>
+                    <line x1="-20" y1="0" x2="20" y2="0" stroke="#333" stroke-width="1"/>
+                    <!-- 风筝尾巴 -->
+                    <g class="kite-tail">
+                        <ellipse cx="0" cy="30" rx="3" ry="6" fill="#FF6B6B"/>
+                        <ellipse cx="2" cy="40" rx="2.5" ry="5" fill="#FFD93D"/>
+                        <ellipse cx="-2" cy="50" rx="2" ry="4" fill="#4ECDC4"/>
+                        <ellipse cx="1" cy="58" rx="1.5" ry="3" fill="#FF6B6B"/>
+                    </g>
+                </g>
+                <!-- 玩家（有辫子的小姑娘） -->
+                <g id="player" transform="translate(400, 550)">
+                    <!-- 头 -->
+                    <circle cx="0" cy="-40" r="8" fill="#FDBCB4"/>
+                    <!-- 头发 -->
+                    <path d="M-8,-48 Q0,-52 8,-48 Q6,-44 0,-44 Q-6,-44 -8,-48" fill="#8B4513"/>
+                    <!-- 左辫子 -->
+                    <ellipse cx="-12" cy="-35" rx="3" ry="6" fill="#8B4513"/>
+                    <ellipse cx="-14" cy="-27" rx="2.5" ry="4" fill="#8B4513"/>
+                    <!-- 右辫子 -->
+                    <ellipse cx="12" cy="-35" rx="3" ry="6" fill="#8B4513"/>
+                    <ellipse cx="14" cy="-27" rx="2.5" ry="4" fill="#8B4513"/>
+                    <!-- 眼睛 -->
+                    <circle cx="-3" cy="-42" r="1" fill="#000"/>
+                    <circle cx="3" cy="-42" r="1" fill="#000"/>
+                    <!-- 嘴巴 -->
+                    <path d="M-2,-38 Q0,-36 2,-38" stroke="#000" stroke-width="0.5" fill="none"/>
+                    <!-- 身体（裙子） -->
+                    <path d="M0,-32 L0,-10 L-8,0 L8,0 Z" fill="#FF69B4" stroke="#333" stroke-width="1"/>
+                    <!-- 左手 -->
+                    <line x1="0" y1="-25" x2="-15" y2="-15" stroke="#FDBCB4" stroke-width="3"/>
+                    <circle cx="-15" cy="-15" r="2" fill="#FDBCB4"/>
+                    <!-- 右手 -->
+                    <line x1="0" y1="-25" x2="15" y2="-15" stroke="#FDBCB4" stroke-width="3"/>
+                    <circle cx="15" cy="-15" r="2" fill="#FDBCB4"/>
+                    <!-- 左腿 -->
+                    <line x1="-4" y1="0" x2="-6" y2="15" stroke="#FDBCB4" stroke-width="3"/>
+                    <circle cx="-6" cy="15" r="2" fill="#000"/>
+                    <!-- 右腿 -->
+                    <line x1="4" y1="0" x2="6" y2="15" stroke="#FDBCB4" stroke-width="3"/>
+                    <circle cx="6" cy="15" r="2" fill="#000"/>
+                </g>
+            </svg>
+        </div>
+        <div class="controls">
+            <div class="top-row">
+                <button class="control-btn" id="upBtn">↑</button>
+            </div>
+            <div class="bottom-row">
+                <button class="control-btn" id="leftBtn">←</button>
+                <button class="control-btn" id="downBtn">↓</button>
+                <button class="control-btn" id="rightBtn">→</button>
+            </div>
+        </div>
+        <div class="score">得分: <span id="score">0</span></div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html> 
