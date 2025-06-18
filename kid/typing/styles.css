@@ -1,0 +1,207 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+h1 {
+    text-align: center;
+    color: #1a1a1a;
+    margin-bottom: 2rem;
+}
+
+.game-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: #4a4a4a;
+}
+
+.difficulty {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+}
+
+.difficulty-btn {
+    padding: 0.5rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    background: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.difficulty-btn.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.target-text {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    min-height: 100px;
+    line-height: 1.6;
+}
+
+.input-field {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.start-btn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.start-btn:hover {
+    background-color: #0056b3;
+}
+
+/* New styles for character highlighting */
+.char {
+    display: inline-block;
+    padding: 0 2px;
+    border-radius: 2px;
+}
+
+.char.correct {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.char.incorrect {
+    background-color: #f8d7da;
+    color: #721c24;
+    text-decoration: underline;
+}
+
+.char.current {
+    background-color: #e2e3e5;
+    border-bottom: 2px solid #007bff;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
+}
+
+.modal h3 {
+    margin: 1.5rem 0 1rem;
+    color: #1a1a1a;
+}
+
+.final-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.char-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.char-stat {
+    padding: 0.5rem;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.char-stat.good {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.char-stat.medium {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.char-stat.poor {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+#close-modal {
+    margin-top: 1rem;
+} 

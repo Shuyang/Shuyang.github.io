@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Character Typing Practice</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Special Character Typing Practice</h1>
+        <div class="game-container">
+            <div class="stats">
+                <div class="stat">
+                    <span>Time: </span>
+                    <span id="timer">60</span>s
+                </div>
+                <div class="stat">
+                    <span>Accuracy: </span>
+                    <span id="accuracy">100</span>%
+                </div>
+                <div class="stat">
+                    <span>CPM: </span>
+                    <span id="wpm">0</span>
+                </div>
+            </div>
+            <div id="target-text" class="target-text"></div>
+            <input type="text" id="input-field" class="input-field" placeholder="Start typing..." autocomplete="off">
+            <button id="start-btn" class="start-btn">Start Game</button>
+        </div>
+    </div>
+
+    <!-- Results Modal -->
+    <div id="results-modal" class="modal">
+        <div class="modal-content">
+            <h2>Final Results</h2>
+            <div class="final-stats">
+                <div class="stat">
+                    <span>Total Characters: </span>
+                    <span id="total-chars">0</span>
+                </div>
+                <div class="stat">
+                    <span>Correct Characters: </span>
+                    <span id="correct-chars">0</span>
+                </div>
+                <div class="stat">
+                    <span>Overall Accuracy: </span>
+                    <span id="final-accuracy">0</span>%
+                </div>
+                <div class="stat">
+                    <span>Characters Per Minute: </span>
+                    <span id="final-cpm">0</span>
+                </div>
+            </div>
+            <h3>Character Accuracy</h3>
+            <div id="char-stats" class="char-stats"></div>
+            <button id="close-modal" class="start-btn">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
