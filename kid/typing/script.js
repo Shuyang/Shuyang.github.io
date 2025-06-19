@@ -123,9 +123,9 @@ function updateHighlighting(inputText, targetText) {
 
 // Calculate CPM (Characters Per Minute)
 function calculateCPM() {
-    if (!gameState.startTime || !gameState.lastTypingTime) return 0;
+    if (!gameState.startTime) return 0;
     
-    const timeElapsed = (gameState.lastTypingTime - gameState.startTime) / 1000 / 60; // Convert to minutes
+    const timeElapsed = (Date.now() - gameState.startTime) / 1000 / 60; // Convert to minutes
     if (timeElapsed === 0) return 0;
     
     return Math.round(gameState.correctChars / timeElapsed);
@@ -176,6 +176,7 @@ function startGame() {
     if (gameState.isPlaying) return;
     
     gameState.isPlaying = true;
+    gameState.startTime = Date.now(); // Start timing when game starts
     inputField.disabled = false;
     inputField.value = '';
     inputField.focus();
@@ -221,12 +222,6 @@ inputField.addEventListener('input', () => {
     
     const inputText = inputField.value;
     const targetTextContent = targetText.textContent;
-    
-    // Start timing when first character is typed
-    if (inputText.length === 1) {
-        gameState.startTime = Date.now();
-    }
-    gameState.lastTypingTime = Date.now();
     
     // Track character statistics
     if (inputText.length > gameState.lastInputLength) {
