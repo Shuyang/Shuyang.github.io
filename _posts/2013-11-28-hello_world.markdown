@@ -6,6 +6,4 @@ summary:  This is the fisrt post.
 categories: website update
 ---
 
-Hello world!
-
 I am the first post in a blog powered by Github Pages and Jekyll!
